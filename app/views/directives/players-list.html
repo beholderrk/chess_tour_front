@@ -1,3 +1,8 @@
-<ul class="list-unstyled">
-    <li ng-repeat="player in players">{{ player.name }}</li>
-</ul>
+<div class="row players-list" ng-repeat="player in players">
+    <div class="col-xs-8 name">
+        {{ player.name }}
+    </div>
+    <div class="col-xs-4">
+        <small>{{ player.elo }}</small>
+    </div>
+</div>

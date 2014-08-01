@@ -115,6 +115,15 @@ $main-border: 1px solid #ccc;
   border: $main-border;
 }
 
+.players-list {
+  .name {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .tournament {
   textarea.tournament-name {
     @extend .h1;
