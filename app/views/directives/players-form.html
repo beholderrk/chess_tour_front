@@ -1,0 +1,18 @@
+<form class="players">
+    <div class="row player" ng-repeat="player in players">
+        <div class="col-xs-5">
+            <input class="form-control input-sm" ng-model="player.name" type="text" name="name" placeholder="Name"/>
+        </div>
+        <div class="col-xs-5">
+            <input class="form-control input-sm" ng-model="player.elo" type="text" name="elo" placeholder="ELO"/>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-sm btn-default" ng-click="remove(player)"><i class="glyphicon glyphicon-remove"></i></button>
+        </div>
+    </div>
+    <div class="row actions">
+        <div class="col-xs-12">
+            <button class="btn btn-sm btn-success" ng-click="add()"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        </div>
+    </div>
+</form>

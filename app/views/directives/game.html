@@ -1,0 +1,27 @@
+<div class="game">
+    <div class="row players">
+        <div class="col-xs-4" ng-class="{ won: gsrv.is_player_1_won(game), lost: gsrv.is_player_2_won(game) }">{{ game.player1.name }}</div>
+        <div class="col-xs-4 text-center vs">vs</div>
+        <div class="col-xs-4 text-right" ng-class="{ won: gsrv.is_player_2_won(game), lost: gsrv.is_player_1_won(game) }">{{ game.player2.name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <button type="button" class="btn"
+                    ng-class="is_player_1_won() ? 'btn-success active' : 'btn-default'"
+                    ng-hide="is_game_ended() && !is_player_1_won()"
+                    ng-click="player_1_won()">Won</button>
+        </div>
+        <div class="col-xs-4">
+            <button type="button" class="btn center-block"
+                    ng-class="is_pat() ? 'btn-success active' : 'btn-default'"
+                    ng-hide="is_game_ended() && !is_pat()"
+                    ng-click="pat()">Pat</button>
+        </div>
+        <div class="col-xs-4">
+            <button type="button" class="btn pull-right"
+                    ng-class="is_player_2_won() ? 'btn-success active' : 'btn-default'"
+                    ng-hide="is_game_ended() && !is_player_2_won()"
+                    ng-click="player_2_won()">Won</button>
+        </div>
+    </div>
+</div>
