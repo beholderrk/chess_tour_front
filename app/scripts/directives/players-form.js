@@ -11,6 +11,6 @@ angular.module('chessTourFrontApp')
         return {
             templateUrl: 'views/directives/players-form.html',
             restrict: 'E',
-            controller: 'PlayersCtrl'
+            controller: 'PlayersFormCtrl'
         };
     });

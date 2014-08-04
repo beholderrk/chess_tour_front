@@ -2,17 +2,17 @@
 
 describe('Service: players', function () {
 
-  // load the service's module
-  beforeEach(module('chessTourFrontApp'));
+    // load the service's module
+    beforeEach(module('chessTourFrontApp'));
 
-  // instantiate service
-  var players;
-  beforeEach(inject(function (_players_) {
-    players = _players_;
-  }));
+    // instantiate service
+    var players;
+    beforeEach(inject(function (_players_) {
+        players = _players_;
+    }));
 
-  it('should do something', function () {
-    expect(!!players).toBe(true);
-  });
+    it('should do something', function () {
+        expect(!!players).toBe(true);
+    });
 
 });
