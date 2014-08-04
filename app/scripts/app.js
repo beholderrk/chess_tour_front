@@ -16,6 +16,7 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
+        'djangoRESTResources',
         'underscore'
     ])
     .config(function ($routeProvider) {

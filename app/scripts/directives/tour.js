@@ -13,7 +13,7 @@ angular.module('chessTourFrontApp')
             restrict: 'E',
             controller: 'TourCtrl',
             scope: {
-                tour: '=tour'
+                tourId: '=tourId'
             }
         };
     });

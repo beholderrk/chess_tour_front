@@ -8,9 +8,12 @@
  * Controller of the chessTourFrontApp
  */
 angular.module('chessTourFrontApp')
-    .controller('TournamentCtrl', function ($scope, $routeParams, tournaments) {
-        $scope.tournament = tournaments.get({id: $routeParams.tournamentId});
+    .controller('TournamentCtrl', function ($scope, $routeParams, Tournament) {
+        $scope.tournament = Tournament.get({id: $routeParams.tournamentId});
         $scope.started = function () {
-            return $scope.tournament.tours.length > 0;
+            if (!!$scope.tournament.tours){
+                return $scope.tournament.tours.length > 0;
+            }
+            return false;
         };
     });

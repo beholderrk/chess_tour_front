@@ -125,11 +125,21 @@ $main-border: 1px solid #ccc;
 }
 
 .tournament {
-  textarea.tournament-name {
-    @extend .h1;
-    height: 50px;
-    border: none;
+  .name-edit-area {
+    textarea.tournament-name {
+      @extend .h1;
+      width: 100%;
+      height: 50px;
+      border: none;
+    }
+    .tournament-name-edit-icon {
+      font-size: $font-size-h1;
+      margin-top: $line-height-computed;
+      margin-bottom: ($line-height-computed / 2);
+      opacity: 0.5;
+    }
   }
+
   form.players {
     .player {
       padding: $main-padding 0 0 0;

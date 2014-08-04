@@ -2,7 +2,7 @@
     <h2><small>Tour {{ tour.number }}</small></h2>
     <div class="group" ng-repeat="group in tour.groups">
         <h3><small>Group {{ group.name }}</small></h3>
-        <game ng-repeat="game in group.games" ch-game="game"></game>
+        <!--<game ng-repeat="game in group.games" ch-game="game"></game>-->
     </div>
     <button type="button" class="btn btn-lg btn-default" ng-disabled="!tourCompleted()">Complete tour {{ tour.number }}</button>
 </div>

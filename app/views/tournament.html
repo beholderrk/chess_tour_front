@@ -1,7 +1,15 @@
 <div class="row">
     <!-- tornament not started yet -->
     <div class="col-xs-12 tournament" ng-hide="started()">
-        <textarea class="tournament-name" name="name" cols="30" rows="10" ng-model="tournament.name" autofocus="autofocus"></textarea>
+        <div class="row name-edit-area" ng-init="nameFocus=true">
+            <div class="col-xs-10">
+                <textarea class="tournament-name" name="name" cols="30" rows="10"
+                          ng-model="tournament.name" focus-me="nameFocus"></textarea>
+            </div>
+            <div class="col-xs-2">
+                <span class="glyphicon glyphicon-edit tournament-name-edit-icon" ng-click="nameFocus=true"></span>
+            </div>
+        </div>
         <players-form/>
         <button class="btn btn-default btn-lg center-block">Start Tournament</button>
     </div>
@@ -11,6 +19,6 @@
     </div>
     <div class="col-md-8 tournament" ng-show="started()">
         <h1>{{ tournament.name }} <small>{{ tournament.year }}</small></h1>
-        <tour ng-repeat="tour in tournament.tours" tour="tour"></tour>
+        <tour ng-repeat="tourId in tournament.tours" tour-id="tourId"></tour>
     </div>
 </div>
