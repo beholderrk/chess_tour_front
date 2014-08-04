@@ -8,29 +8,37 @@
  * Service in the chessTourFrontApp.
  */
 angular.module('chessTourFrontApp')
-    .service('GameService', function GameService() {
-        this.is_player_1_won = function (game) {
-            return game.status === 'player_1_won';
+    .factory('GameService', function GameService() {
+        return function(game){
+            if (!game){
+                return null;
+            }
+
+            this.game = game;
+
+            this.is_player_1_won = function () {
+                return this.game.status === 'player_1_won';
+            };
+            this.is_player_2_won = function () {
+                return this.game.status === 'player_2_won';
+            };
+            this.is_pat = function () {
+                return this.game.status === 'pat';
+            };
+            this.is_game_ended = function () {
+                return !!this.game.status;
+            };
+            this.player_1_won = function () {
+                this.setStatus('player_1_won');
+            };
+            this.player_2_won = function () {
+                this.setStatus('player_2_won');
+            };
+            this.pat = function () {
+                this.setStatus('pat');
+            };
+            this.setStatus = function(status){
+                this.game.status = status === this.game.status ? null : status;
+            }
         };
-        this.is_player_2_won = function (game) {
-            return game.status === 'player_2_won';
-        };
-        this.is_pat = function (game) {
-            return game.status === 'pat';
-        };
-        this.is_game_ended = function (game) {
-            return !!game.status;
-        };
-        this.player_1_won = function (game) {
-            this.setStatus(game, 'player_1_won');
-        };
-        this.player_2_won = function (game) {
-            this.setStatus(game, 'player_2_won');
-        };
-        this.pat = function (game) {
-            this.setStatus(game, 'pat');
-        };
-        this.setStatus = function(game, status){
-            game.status = status === game.status ? null : status;
-        }
     });
