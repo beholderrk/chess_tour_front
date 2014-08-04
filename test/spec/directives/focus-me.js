@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: playersList', function () {
+describe('Directive: focusMe', function () {
 
     // load the directive's module
     beforeEach(module('chessTourFrontApp'));
@@ -13,8 +13,8 @@ describe('Directive: playersList', function () {
     }));
 
     it('should make hidden element visible', inject(function ($compile) {
-//        element = angular.element('<players-list></players-list>');
+//        element = angular.element('<focus-me></focus-me>');
 //        element = $compile(element)(scope);
-//        expect(element.text()).toBe('this is the playersList directive');
+//        expect(element.text()).toBe('this is the focusMe directive');
     }));
 });
