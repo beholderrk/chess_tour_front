@@ -11,7 +11,7 @@ angular.module('chessTourFrontApp')
     .controller('GameCtrl', ['$scope', 'GameService', function ($scope, gameService) {
         $scope.$watch('game', function (game) {
             if(!!game){
-                $scope.gsrv = gameService(game);
+                $scope.gsrv = new gameService(game);
             }
         });
     }]);

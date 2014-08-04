@@ -19,7 +19,7 @@ angular.module('chessTourFrontApp')
                 $scope.tour = Tour.get({id: $scope.tourId});
                 $scope.tourCompleted = function () {
                     var games = _.flatten(_.map($scope.tour.groups, function(g){ return g.games }));
-                    return _.every(_.map(games, function(game){ return gameService(game).is_game_ended(); }));
+                    return _.every(_.map(games, function(game){ return new gameService(game).is_game_ended(); }));
                 }
             }
         });
