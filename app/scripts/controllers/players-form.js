@@ -33,5 +33,4 @@ angular.module('chessTourFrontApp')
             player.id = object.originalObject.id;
             player.elo = object.originalObject.elo;
         };
-        // todo: autocomplete
     });

@@ -28,6 +28,7 @@ angular.module('chessTourFrontApp').directive('chAutocomplete', ['$parse', '$htt
             localData: '=',
             remoteUrlRequestFormatter: '=',
             remoteUrlResponseFormatter: '=',
+            form: '=',
             id: '@',
             placeholder: '@',
             remoteUrl: '@',
@@ -39,14 +40,15 @@ angular.module('chessTourFrontApp').directive('chAutocomplete', ['$parse', '$htt
             pause: '@',
             searchFields: '@',
             minlength: '@',
+            maxLength: '@',
             matchClass: '@',
             clearSelected: '@',
             overrideSuggestions: '@',
             searchStr: '=defaultValue'
         },
         template:
-            '<div class="angucomplete-holder">' +
-            '  <input id="{{id}}_value" ng-model="searchStr" type="text" placeholder="{{placeholder}}" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults()" autocapitalize="off" autocorrect="off" autocomplete="off"/>' +
+            '<div class="angucomplete-holder form-group" ng-class="{\'has-error\':form.searchStr.$invalid && form.searchStr.$dirty}">' +
+            '  <input id="{{id}}_value" name="searchStr" ng-model="searchStr" type="text" ng-maxlength="{{ maxLength }}" placeholder="{{placeholder}}" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults()" autocapitalize="off" autocorrect="off" autocomplete="off"/>' +
             '  <div id="{{id}}_dropdown" class="dropdown" ng-if="showDropdown">' +
             '    <div class="searching" ng-show="searching">Searching...</div>' +
             '    <div class="searching" ng-show="!searching && (!results || results.length == 0)">No results found</div>' +
