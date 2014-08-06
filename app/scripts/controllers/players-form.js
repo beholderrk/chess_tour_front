@@ -27,5 +27,11 @@ angular.module('chessTourFrontApp')
         $scope.remove = function(player){
             $scope.players = _.without($scope.players, player);
         };
+        $scope.selectedObject = function (object, player) {
+            console.log(object);
+            player.name = object.originalObject.name;
+            player.id = object.originalObject.id;
+            player.elo = object.originalObject.elo;
+        };
         // todo: autocomplete
     });

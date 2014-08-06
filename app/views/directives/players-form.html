@@ -1,7 +1,15 @@
 <form class="players">
     <div class="row player" ng-repeat="player in players">
         <div class="col-xs-5">
-            <input class="form-control input-sm" ng-model="player.name" type="text" name="name" placeholder="Name"/>
+            <ch-autocomplete  id="name"
+                              title-field="name"
+                              remote-url="/api/players/?search="
+                              selected-object="player"
+                              handle-selected-object="selectedObject"
+                              input-class="form-control input-sm"
+                              placeholder="Name"
+                              default-value="player.name"></ch-autocomplete>
+            <!--<input class="form-control input-sm" ng-model="player.name" type="text" name="name" placeholder="Name"/>-->
         </div>
         <div class="col-xs-5">
             <input class="form-control input-sm" ng-model="player.elo" type="text" name="elo" placeholder="ELO"/>
