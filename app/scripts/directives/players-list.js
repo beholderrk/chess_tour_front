@@ -11,6 +11,11 @@ angular.module('chessTourFrontApp')
         return {
             templateUrl: 'views/directives/players-list.html',
             restrict: 'E',
-            controller: 'PlayersListCtrl'
+            controller: 'PlayersCtrl',
+            scope: {
+                players: '='
+            },
+            link: function ($scope, $element, $attrs) {
+            }
         };
     });

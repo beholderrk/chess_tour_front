@@ -7,10 +7,33 @@
  * # playersForm
  */
 angular.module('chessTourFrontApp')
-    .directive('playersForm', function () {
+    .directive('playersForm', function (_) {
         return {
             templateUrl: 'views/directives/players-form.html',
             restrict: 'E',
-            controller: 'PlayersFormCtrl'
+            controller: 'PlayersCtrl',
+            scope: {
+                players: '='
+            },
+            link: function ($scope, $element, $attrs) {
+                $scope.newItem = function () {
+                    return {
+                        id: null,
+                        name: '',
+                        elo: null
+                    };
+                };
+                $scope.add = function(){
+                    $scope.players.push($scope.newItem());
+                };
+                $scope.remove = function(player){
+                    $scope.players = _.without($scope.players, player);
+                };
+                $scope.selectedObject = function (object, player) {
+                    player.name = object.originalObject.name;
+                    player.id = object.originalObject.id;
+                    player.elo = object.originalObject.elo;
+                };
+            }
         };
     });
