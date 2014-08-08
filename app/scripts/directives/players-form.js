@@ -13,7 +13,8 @@ angular.module('chessTourFrontApp')
             restrict: 'E',
             controller: 'PlayersCtrl',
             scope: {
-                players: '='
+                players: '=',
+                startTournament: '='
             },
             link: function ($scope, $element, $attrs) {
                 $scope.newItem = function () {
@@ -33,7 +34,7 @@ angular.module('chessTourFrontApp')
                     player.name = object.originalObject.name;
                     player.id = object.originalObject.id;
                     player.elo = object.originalObject.elo;
-                };
+                }
             }
         };
     });
