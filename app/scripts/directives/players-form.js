@@ -7,7 +7,7 @@
  * # playersForm
  */
 angular.module('chessTourFrontApp')
-    .directive('playersForm', function (_) {
+    .directive('playersForm', function (_, players) {
         return {
             templateUrl: 'views/directives/players-form.html',
             restrict: 'E',
@@ -23,6 +23,9 @@ angular.module('chessTourFrontApp')
                         name: '',
                         elo: null
                     };
+                };
+                $scope.addAll = function () {
+                    $scope.players = players.query();
                 };
                 $scope.add = function(){
                     $scope.players.push($scope.newItem());
