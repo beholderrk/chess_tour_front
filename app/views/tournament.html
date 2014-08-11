@@ -13,8 +13,8 @@
         <players-form players="tournament.players" start-tournament="startTournament"></players-form>
     </div>
     <!-- tournament started -->
-    <div class="col-xs-12 col-md-4" ng-if="started()">
-        <players-list players="tournament.players"/>
+    <div class="col-xs-12 col-md-4 tournament-players" ng-if="started()">
+        <players-list players="tournament.players" scores="tournament.scores"/>
     </div>
     <div class="col-md-8 tournament" ng-if="started()">
         <h1>{{ tournament.name }} <small>{{ tournament.year }}</small></h1>
