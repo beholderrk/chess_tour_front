@@ -18,7 +18,7 @@ angular.module('chessTourFrontApp')
         };
         $scope.startTournament = function () {
             $scope.tournament.$save(function (tournament) {
-                Tournament.next({id: tournament.id}, function(tournament){
+                Tournament.start({id: tournament.id}, function(tournament){
                     $scope.tournament = tournament;
                 });
             });
