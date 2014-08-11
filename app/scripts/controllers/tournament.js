@@ -8,7 +8,7 @@
  * Controller of the chessTourFrontApp
  */
 angular.module('chessTourFrontApp')
-    .controller('TournamentCtrl', function ($scope, $routeParams, Tournament) {
+    .controller('TournamentCtrl', function ($scope, $http, $routeParams, Tournament) {
         $scope.tournament = Tournament.get({id: $routeParams.tournamentId});
         $scope.started = function () {
             if (!!$scope.tournament.tours){
@@ -16,4 +16,11 @@ angular.module('chessTourFrontApp')
             }
             return false;
         };
+        $scope.startTournament = function () {
+            $scope.tournament.$save(function (tournament) {
+                Tournament.next({id: tournament.id}, function(tournament){
+                    $scope.tournament = tournament;
+                });
+            });
+        }
     });
