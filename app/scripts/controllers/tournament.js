@@ -16,11 +16,11 @@ angular.module('chessTourFrontApp')
             }
             return false;
         };
-        $scope.startTournament = function () {
+        $scope.$on('start tournament', function () {
             $scope.tournament.$save(function (tournament) {
                 Tournament.start({id: tournament.id}, function(tournament){
                     $scope.tournament = tournament;
                 });
             });
-        }
+        });
     });

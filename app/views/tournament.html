@@ -10,11 +10,11 @@
                 <span class="glyphicon glyphicon-edit tournament-name-edit-icon" ng-click="nameFocus=true"></span>
             </div>
         </div>
-        <players-form players="tournament.players" start-tournament="startTournament"></players-form>
+        <players-form players="tournament.players"></players-form>
     </div>
     <!-- tournament started -->
     <div class="col-xs-12 col-md-4 tournament-players" ng-if="started()">
-        <players-list players="tournament.players" scores="tournament.scores"/>
+        <players-list tournament="tournament"></players-list>
     </div>
     <div class="col-md-8 tournament" ng-if="started()">
         <h1>{{ tournament.name }} <small>{{ tournament.year }}</small></h1>
