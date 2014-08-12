@@ -8,13 +8,16 @@
  * Service in the chessTourFrontApp.
  */
 angular.module('chessTourFrontApp')
-    .factory('GameService', function GameService() {
+    .factory('GameService', function GameService(djResource, $rootScope) {
         function Game(gamedata){
             if(gamedata){
                 this.setData(gamedata);
             }
         }
         Game.prototype = {
+            resource: djResource('/api/games/:id/', {id: '@id'}, {
+                patch: {method: 'PATCH'}
+            }),
             setData: function(gamedata) {
                 this.game = gamedata;
             },
@@ -41,6 +44,9 @@ angular.module('chessTourFrontApp')
             },
             setStatus: function(status){
                 this.game.status = status === this.game.status ? null : status;
+                this.resource.patch({id: this.game.id}, this.game, function(game){
+                    $rootScope.$emit('game status changed', game);
+                });
             }
         };
         return Game;
