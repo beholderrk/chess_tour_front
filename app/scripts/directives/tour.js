@@ -13,7 +13,9 @@ angular.module('chessTourFrontApp')
             restrict: 'E',
             controller: 'TourCtrl',
             scope: {
-                tourId: '=tourId'
+                tournamentId: '=',
+                tourId: '=',
+                last: '='
             }
         };
     });

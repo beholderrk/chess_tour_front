@@ -12,6 +12,7 @@ angular.module('chessTourFrontApp')
         // initial
         $scope.tourCompleted = function(){ return false; };
         $scope.tour = null;
+        $scope.tourProccess = false;
 
         // get data
         $scope.$watch('tourId', function (value) {
@@ -24,4 +25,11 @@ angular.module('chessTourFrontApp')
             }
         });
 
+        $scope.nextTour = function () {
+            function nextTourCallBack(){
+                $scope.tourProccess = false;
+            }
+            $scope.tourProccess = true;
+            $scope.$emit('next tour', nextTourCallBack);
+        }
     }]);

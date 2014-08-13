@@ -136,6 +136,9 @@ $main-border: 1px solid #ccc;
   .tour {
     @extend .bordered-container;
   }
+  .tour.disabled {
+    opacity: 0.6;
+  }
 
   .game {
     @extend .bordered-container;

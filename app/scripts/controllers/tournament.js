@@ -23,4 +23,12 @@ angular.module('chessTourFrontApp')
                 });
             });
         });
+        $scope.$on('next tour', function (event, callback) {
+            Tournament.next({id: $scope.tournament.id}, function (tournament) {
+                $scope.tournament = tournament;
+                callback();
+            }, function (response) {
+                callback();
+            });
+        })
     });

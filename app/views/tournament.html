@@ -18,6 +18,6 @@
     </div>
     <div class="col-md-8 tournament" ng-if="started()">
         <h1>{{ tournament.name }} <small>{{ tournament.year }}</small></h1>
-        <tour ng-repeat="tourId in tournament.tours" tour-id="tourId"></tour>
+        <tour ng-repeat="tourId in tournament.tours" tour-id="tourId" tournament-id="tournament.id" last="$last"></tour>
     </div>
 </div>
